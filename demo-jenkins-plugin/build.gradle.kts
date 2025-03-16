@@ -7,15 +7,17 @@ plugins {
 group = "io.jenkins.userPlugins"
 version = "0.1.0"
 
-repositories {
-    mavenCentral()
-    maven {
-        url = uri("https://repo.jenkins-ci.org/public/")
-    }
-    maven {
-        url = uri("https://repo.jenkins-ci.org/releases/")
-    }
-}
+//repositories {
+//    mavenCentral()
+//    maven {
+//        url = uri("https://repo.jenkins-ci.org/public/")
+//        metadataSources {
+//            mavenPom()
+//            artifact()
+//            ignoreGradleMetadataRedirection()
+//        }
+//    }
+//}
 
 // Plugin-specific dependencies
 dependencies {

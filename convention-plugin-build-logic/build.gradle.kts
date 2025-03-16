@@ -18,14 +18,6 @@ repositories {
         }
     }
     maven {
-        url = uri("https://repo.jenkins-ci.org/releases/")
-        metadataSources {
-            mavenPom()
-            artifact()
-            ignoreGradleMetadataRedirection()
-        }
-    }
-    maven {
         url = uri("https://repo.maven.apache.org/maven2")
         metadataSources {
             mavenPom()

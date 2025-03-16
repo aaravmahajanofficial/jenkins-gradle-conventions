@@ -1,6 +1,5 @@
 package io.jenkins.gradle
 
-
 import com.diffplug.gradle.spotless.SpotlessExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -9,86 +8,54 @@ import org.gradle.kotlin.dsl.configure
 
 class JenkinsStaticAnalysisPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-
         with(project) {
-            apply(plugin = "com.diffplug.spotless") {
+            apply(plugin = "com.diffplug.spotless")
 
-                extensions.configure<SpotlessExtension> {
+            extensions.configure<SpotlessExtension> {
+                kotlin {
+                    // Target all Kotlin files but exclude build directories
+                    target("**/*.kt")
+                    targetExclude("**/build/**", "**/build-*/**")
 
-                    kotlin {
-                        // Target all Kotlin files but exclude build directories
-                        target("**/*.kt")
-                        targetExclude("**/build/**", "**/build-*/**")
+                    // Use ktlint with latest stable version
+                    ktlint("1.0.0")
+                        .setEditorConfigPath("$projectDir/.editorconfig")
+                        .editorConfigOverride(mapOf(
+                            "max_line_length" to "120",
+                            "ktlint_code_style" to "intellij_idea",
+                            "indent_size" to "4"
+                        ))
 
-                        // Use ktlint with latest stable version
-                        ktlint("1.0.0")
-                            .setEditorConfigPath("$projectDir/.editorconfig")
-                            .editorConfigOverride(mapOf(
-                                "max_line_length" to "120",
-                                "ktlint_code_style" to "intellij_idea",
-                                "indent_size" to "4"
-                            ))
+                    // Toggle formatting on/off capability
+                    toggleOffOn()
 
-                        // Toggle formatting on/off capability
-                        toggleOffOn()
+                    // Remove unused imports
+                    trimTrailingWhitespace()
+                    endWithNewline()
 
-                        // Remove unused imports
-                        trimTrailingWhitespace()
-                        endWithNewline()
-
-                        // Add license header
-                        licenseHeader("/* (C) \$YEAR */")
-                    }
-
-                    kotlinGradle {
-                        target("*.gradle.kts", "buildSrc/**/*.kt")
-                        ktlint()
-                        trimTrailingWhitespace()
-                        endWithNewline()
-                    }
-
-                    java {
-                        // Target all Java files but exclude build directories
-                        target("**/*.java")
-                        targetExclude("**/build/**", "**/build-*/**")
-
-                        // Toggle formatting on/off capability
-                        toggleOffOn()
-
-                        // Import order configuration
-                        importOrder()
-                        removeUnusedImports()
-                        googleJavaFormat().aosp().reflowLongStrings()
-
-                        // Fix formatting of type annotations
-                        formatAnnotations()
-
-                        // Ensure files end properly
-                        trimTrailingWhitespace()
-                        endWithNewline()
-
-                        // License header
-                        licenseHeader("/* (C) \$YEAR */")
-                    }
-
+                    // Add license header
+                    licenseHeader("/* (C) \$YEAR */")
                 }
 
-                tasks.register("checkCodeStyle") {
-                    group = "Verification 🔍"
-                    description = "Checks code formatting"
-                    dependsOn("spotlessCheck")
+                kotlinGradle {
+                    target("*.gradle.kts", "buildSrc/**/*.kt")
+                    ktlint()
+                    trimTrailingWhitespace()
+                    endWithNewline()
                 }
-
-                tasks.register("formatCode") {
-                    group = "Formatting the code 🚀"
-                    description = "Formats code according to style guidelines"
-                    dependsOn("spotlessApply")
-                }
-
             }
 
+            tasks.register("checkCodeStyle") {
+                group = "Verification 🔍"
+                description = "Checks code formatting"
+                dependsOn("spotlessCheck")
+            }
+
+            tasks.register("formatCode") {
+                group = "Formatting the code 🚀"
+                description = "Formats code according to style guidelines"
+                dependsOn("spotlessApply")
+            }
         }
-
     }
-
 }
