@@ -19,11 +19,12 @@ class JenkinsPluginConventionPlugin : Plugin<Project> {
             apply<JpiPlugin>() // we can reuse the Gradle JPI plugin
 
             extensions.configure<JavaPluginExtension> {
-                sourceCompatibility = JavaVersion.VERSION_11
-                targetCompatibility = JavaVersion.VERSION_11
+                sourceCompatibility = JavaVersion.VERSION_17
+                targetCompatibility = JavaVersion.VERSION_17
             }
 
             repositories {
+                gradlePluginPortal()
                 mavenCentral()
                 maven {
                     url = uri("https://repo.jenkins-ci.org/public/")

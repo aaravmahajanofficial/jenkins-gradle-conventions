@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm")
     `kotlin-dsl`
+    id("java-gradle-plugin")
 }
 
 group = "io.jenkins.gradle"
@@ -11,6 +11,27 @@ repositories {
     mavenCentral()
     maven {
         url = uri("https://repo.jenkins-ci.org/public/")
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+        }
+    }
+    maven {
+        url = uri("https://repo.jenkins-ci.org/releases/")
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+        }
+    }
+    maven {
+        url = uri("https://repo.maven.apache.org/maven2")
+        metadataSources {
+            mavenPom()
+            artifact()
+            ignoreGradleMetadataRedirection()
+        }
     }
 }
 
@@ -20,10 +41,8 @@ dependencies {
     // Kotlin Gradle plugin
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
     // Code quality plugins
-    implementation("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.0.2")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
 }
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
-    }
+    jvmToolchain(21)
 }

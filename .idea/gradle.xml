@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/convention-plugin-build-logic" />
+            <option value="$PROJECT_DIR$/demo-jenkins-plugin" />
           </set>
         </option>
       </GradleProjectSettings>
