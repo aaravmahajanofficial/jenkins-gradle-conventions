@@ -37,7 +37,7 @@ repositories {
 
 dependencies {
     // Jenkins Gradle JPI plugin
-    implementation("org.jenkins-ci.tools:gradle-jpi-plugin:0.43.0")
+    implementation("org.jenkins-ci.tools:gradle-jpi-plugin:0.53.1")
     // Kotlin Gradle plugin
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
     // Code quality plugins
