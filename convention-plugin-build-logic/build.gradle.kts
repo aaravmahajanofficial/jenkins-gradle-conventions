@@ -1,4 +1,5 @@
 plugins {
+    kotlin("jvm")
     `kotlin-dsl`
 }
 
@@ -14,17 +15,15 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-
     // Jenkins Gradle JPI plugin
     implementation("org.jenkins-ci.tools:gradle-jpi-plugin:0.43.0")
     // Kotlin Gradle plugin
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
     // Code quality plugins
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
-    implementation("net.ltgt.gradle:gradle-errorprone-plugin:3.1.0")
-
+    implementation("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.0.2")
 }
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
