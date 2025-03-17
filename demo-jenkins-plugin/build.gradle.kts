@@ -1,9 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.9.24"
     id("jenkins-plugin")
     id("jenkins-static")
     id("jenkins-test")
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
+    id("jenkins-codequality")
 }
 
 group = "io.jenkins.userPlugins"

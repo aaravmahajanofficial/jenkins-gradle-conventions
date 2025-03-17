@@ -34,6 +34,9 @@ dependencies {
     // Kotlin Gradle plugin and standard library
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
+    implementation("com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.14")
+    // Ktlint plugin
+    implementation("org.jlleitschuh.gradle:ktlint-gradle:12.1.0")
 }
 
 kotlin {
