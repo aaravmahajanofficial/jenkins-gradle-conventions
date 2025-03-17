@@ -300,6 +300,9 @@ How to Build a Custom Gradle Plugin to Share Project Config - Multi-Module Archi
 Philipp Lackner
 https://www.youtube.com/watch?v=kFWmL5opJNk
 
+CloudBees TV Official video on Demystifying the Jenkins Parent POM for libraries and core components
+https://www.youtube.com/watch?v=L6QFDFZABcs
+
 https://github.com/jenkinsci/plugin-pom
 https://github.com/jenkinsci/gradle-jpi-plugin
 https://docs.gradle.org/current/userguide/custom_plugins.html
