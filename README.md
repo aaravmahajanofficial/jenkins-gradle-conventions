@@ -42,6 +42,11 @@ development with modern tooling and best practices.`
 - The devs would be able to customize the defaults similar to `Parent POM for Jenkins Plugins`
 
 ## Current Features
+```text
+# build-logic
+
+./convention-plugin-build-logic
+```
 
 ### Core Plugins
 
