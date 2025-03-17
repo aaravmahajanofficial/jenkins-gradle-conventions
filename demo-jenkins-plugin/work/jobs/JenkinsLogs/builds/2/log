@@ -1,8 +1,0 @@
-Started by user unknown or anonymous
-Running as SYSTEM
-Building in workspace C:\Users\aarav\Desktop\jenkins-gradle-conventions\demo-jenkins-plugin\work\workspace\JenkinsLogs
-[JenkinsLogs] $ cmd.exe -xe C:\Users\aarav\AppData\Local\Temp\jenkins11336258078412498762.sh
-Microsoft Windows [Version 10.0.26100.3476]
-(c) Microsoft Corporation. All rights reserved.
-
-C:\Users\aarav\Desktop\jenkins-gradle-conventions\demo-jenkins-plugin\work\workspace\JenkinsLogs>Finished: SUCCESS
