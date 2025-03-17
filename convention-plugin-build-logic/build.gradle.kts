@@ -1,6 +1,7 @@
 plugins {
     `kotlin-dsl`
     id("java-gradle-plugin")
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
 }
 
 group = "io.jenkins.gradle"
@@ -30,11 +31,11 @@ repositories {
 dependencies {
     // Jenkins Gradle JPI plugin
     implementation("org.jenkins-ci.tools:gradle-jpi-plugin:0.53.1")
-    // Kotlin Gradle plugin
+    // Kotlin Gradle plugin and standard library
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
-    // Code quality plugins
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
 }
+
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }

@@ -1,23 +1,13 @@
 plugins {
+    kotlin("jvm") version "1.9.24"
     id("jenkins-plugin")
     id("jenkins-static")
     id("jenkins-test")
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
 }
 
 group = "io.jenkins.userPlugins"
 version = "0.1.0"
-
-//repositories {
-//    mavenCentral()
-//    maven {
-//        url = uri("https://repo.jenkins-ci.org/public/")
-//        metadataSources {
-//            mavenPom()
-//            artifact()
-//            ignoreGradleMetadataRedirection()
-//        }
-//    }
-//}
 
 // Plugin-specific dependencies
 dependencies {

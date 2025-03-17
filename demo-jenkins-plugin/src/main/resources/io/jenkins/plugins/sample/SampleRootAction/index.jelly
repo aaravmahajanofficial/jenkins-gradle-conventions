@@ -1,0 +1,14 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="${it.displayName}">
+        <l:side-panel>
+            <l:tasks>
+                <l:task icon="symbol-star" href="${rootURL}/" title="Back to Dashboard"/>
+            </l:tasks>
+        </l:side-panel>
+        <l:main-panel>
+            <h1>${it.displayName}</h1>
+            <p>This is a sample Jenkins plugin built with Gradle!</p>
+        </l:main-panel>
+    </l:layout>
+</j:jelly> 
