@@ -39,7 +39,20 @@ development with modern tooling and best practices.`
 - All the hardwork would be done by my convention plugin, like creating a (.jpi) file for Jenkins extensions, static testing, code analysis etc. would be added by my convention plugin and the developers would just need to add my convention plugin like `jenkins-plugin`, `jenkins-test-plugin` etc. to use enable all these features.
 - They only need to focus on the making Jenkins Plugin.
 - Just like a plug-and-play system
+- Code separation, easy for maintainers to update the spotbugs, spotless, etc. to new versions; totally dependent on "convention plugin users" to update to new version of convention plugin to get updates
 - The devs would be able to customize the defaults similar to `Parent POM for Jenkins Plugins`
+
+```text
+# any new jenkins plugin only needs this to access all the features of the new convention plugin
+
+plugins {
+    id("jenkins-plugin")
+    id("jenkins-static")
+    id("jenkins-test")
+    id("jenkins-codequality")
+}
+
+```
 
 ## Current Features
 ```text
